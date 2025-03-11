@@ -42,6 +42,12 @@
       padding: 10px;
       text-align: center;
       background: #f8f9fa;
+      position: relative;
+      /* Ensure footer is positioned correctly */
+      flex-shrink: 0;
+      /* Ensure footer does not shrink */
+      flex-grow: 0;
+      /* Ensure footer does not grow */
     }
 
     .footnote::before {
