@@ -49,22 +49,23 @@
       font-weight: bold;
     }
 
-    .firework {
+    .particle {
       position: absolute;
       width: 5px;
       height: 5px;
       border-radius: 50%;
+      opacity: 1;
       animation: explode 1s ease-out forwards;
     }
 
     @keyframes explode {
       0% {
-        transform: scale(1);
+        transform: translate(0, 0) scale(1);
         opacity: 1;
       }
 
       100% {
-        transform: scale(10);
+        transform: translate(var(--x), var(--y)) scale(1.5);
         opacity: 0;
       }
     }
@@ -85,23 +86,32 @@
     }
 
     function createFirework() {
-      const firework = document.createElement("div");
-      firework.classList.add("firework");
-      firework.style.backgroundColor = getRandomColor();
-      document.body.appendChild(firework);
-
       const x = Math.random() * window.innerWidth;
       const y = Math.random() * window.innerHeight;
 
-      firework.style.left = `${x}px`;
-      firework.style.top = `${y}px`;
+      for (let i = 0; i < 15; i++) {
+        const particle = document.createElement("div");
+        particle.classList.add("particle");
+        particle.style.backgroundColor = getRandomColor();
+        document.body.appendChild(particle);
 
-      setTimeout(() => {
-        firework.remove();
-      }, 1000);
+        const angle = Math.random() * 2 * Math.PI;
+        const distance = Math.random() * 100 + 50;
+        const dx = Math.cos(angle) * distance;
+        const dy = Math.sin(angle) * distance;
+
+        particle.style.setProperty('--x', `${dx}px`);
+        particle.style.setProperty('--y', `${dy}px`);
+        particle.style.left = `${x}px`;
+        particle.style.top = `${y}px`;
+
+        setTimeout(() => {
+          particle.remove();
+        }, 1000);
+      }
     }
 
-    setInterval(createFirework, 300);
+    setInterval(createFirework, 1000);
   </script>
 </body>
 
