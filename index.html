@@ -28,7 +28,7 @@
     }
 
     h1 {
-      color: #f39c12;
+      color: #e25700;
     }
 
     p {
@@ -75,7 +75,7 @@
 <body>
   <main>
     <h1>Herzlichen Glückwunsch, Thomas! 🎉</h1>
-    <p>Wir wünschen dir einen fantastischen Tag voller Freu(n)de und Glück</p>
+    <p>Wir wünschen dir einen fantastischen Tag voller Freu(n)de und Glück!!1!</p>
     <p>Diese Domain ist dein Geschenk – hab Spaß damit*!</p>
   </main>
   <footer class="footnote">Und mach keine illegalen Sachen!</footer>
@@ -111,7 +111,13 @@
       }
     }
 
-    setInterval(createFirework, 1000);
+    function scheduleFirework() {
+      createFirework();
+      const nextInterval = Math.random() * 1200 + 100; // Random between 200ms and 1500ms
+      setTimeout(scheduleFirework, nextInterval);
+    }
+
+    scheduleFirework();
   </script>
 </body>
 
