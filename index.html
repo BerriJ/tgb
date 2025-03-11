@@ -1,34 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday, Thomas!</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
-        }
-        h1 {
-            color: #2c3e50;
-        }
-        p {
-            font-size: 1.2em;
-            color: #34495e;
-        }
-        footer {
-            margin-top: auto;
-            font-size: 0.9em;
-            color: #7f8c8d;
-            padding: 10px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, Thomas!</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #34495e;
+    }
+
+    footer {
+      font-size: 0.9em;
+      color: #7f8c8d;
+      padding: 10px;
+      text-align: center;
+      background: #f8f9fa;
+    }
+
+    .footnote::before {
+      content: "* ";
+      font-weight: bold;
+    }
+  </style>
 </head>
+
 <body>
+  <main>
     <h1>Herzlichen Glückwunsch Thomas! 🎉</h1>
     <p>Wir wünschen dir einen fantastischen Tag voller Freu(n)de und Glück</p>
     <p>Diese Domain ist dein Geschenk – hab Spaß damit*!</p>
-  	<footer>Und mach keine illegalen Sachen!</footer>
+  </main>
+  <footer class="footnote">Und mach keine illegalen Sachen!</footer>
 </body>
+
 </html>
