@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday, Thomas!</title>
+  <title>Herzlichen Glückwunsch, Thomas!</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -13,6 +13,8 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      background-color: white;
+      overflow: hidden;
     }
 
     main {
@@ -22,10 +24,11 @@
       justify-content: center;
       align-items: center;
       padding: 20px;
+      color: black;
     }
 
     h1 {
-      color: #2c3e50;
+      color: #f39c12;
     }
 
     p {
@@ -45,16 +48,61 @@
       content: "* ";
       font-weight: bold;
     }
+
+    .firework {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      animation: explode 1s ease-out forwards;
+    }
+
+    @keyframes explode {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(10);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 
 <body>
   <main>
-    <h1>Herzlichen Glückwunsch Thomas! 🎉</h1>
+    <h1>Herzlichen Glückwunsch, Thomas! 🎉</h1>
     <p>Wir wünschen dir einen fantastischen Tag voller Freu(n)de und Glück</p>
     <p>Diese Domain ist dein Geschenk – hab Spaß damit*!</p>
   </main>
   <footer class="footnote">Und mach keine illegalen Sachen!</footer>
+
+  <script>
+    function getRandomColor() {
+      return `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+    }
+
+    function createFirework() {
+      const firework = document.createElement("div");
+      firework.classList.add("firework");
+      firework.style.backgroundColor = getRandomColor();
+      document.body.appendChild(firework);
+
+      const x = Math.random() * window.innerWidth;
+      const y = Math.random() * window.innerHeight;
+
+      firework.style.left = `${x}px`;
+      firework.style.top = `${y}px`;
+
+      setTimeout(() => {
+        firework.remove();
+      }, 1000);
+    }
+
+    setInterval(createFirework, 300);
+  </script>
 </body>
 
 </html>
